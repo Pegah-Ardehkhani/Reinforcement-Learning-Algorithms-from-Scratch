@@ -6,4 +6,4 @@
 
 ## Table of content ✍️
 
-**1. Epsilon Greedy**
+**01. Epsilon Greedy**
