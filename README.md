@@ -9,3 +9,5 @@
 **01. Epsilon Greedy**
 
 **02. Optimistic Initial Values**
+
+**03. UCB1**
