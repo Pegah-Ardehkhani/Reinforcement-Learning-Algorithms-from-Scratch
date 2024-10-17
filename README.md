@@ -7,3 +7,5 @@
 ## Table of content ✍️
 
 **01. Epsilon Greedy**
+
+**02. Optimistic Initial Values**
