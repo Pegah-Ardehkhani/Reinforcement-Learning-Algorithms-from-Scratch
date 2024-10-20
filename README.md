@@ -11,3 +11,5 @@
 **02. Optimistic Initial Values**
 
 **03. UCB1**
+
+**04. Bayesian Bandit Thompson Sampling**
