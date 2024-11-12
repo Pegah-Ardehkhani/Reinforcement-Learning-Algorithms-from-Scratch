@@ -13,3 +13,5 @@
 **03. UCB1**
 
 **04. Bayesian Bandit Thompson Sampling**
+
+**05. Iterative Policy Evaluation**
