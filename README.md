@@ -15,3 +15,5 @@
 **04. Bayesian Bandit Thompson Sampling**
 
 **05. Iterative Policy Evaluation**
+
+**06. Policy Iteration**
