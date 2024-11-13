@@ -17,3 +17,5 @@
 **05. Iterative Policy Evaluation**
 
 **06. Policy Iteration**
+
+**07. Value Iteration**
