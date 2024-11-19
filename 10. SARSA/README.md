@@ -40,20 +40,18 @@ SARSA (State-Action-Reward-State-Action) is an **on-policy reinforcement learnin
 SARSA iteratively improves the Q-values and the policy by interacting with the environment. Below are the steps:
 
 1. **Initialize**:
-   - Set all Q-values \( Q(s, a) \) to 0 (or small random values).
+   - Set all Q-values $( Q(s, a) )$ to 0 (or small random values).
    - Define the exploration policy (e.g., epsilon-greedy).
 
 2. **For Each Episode**:
-   - Start in an initial state \( S \).
-   - Choose an action \( A \) using the current policy (e.g., epsilon-greedy).
+   - Start in an initial state $( S )$.
+   - Choose an action $( A )$ using the current policy (e.g., epsilon-greedy).
    - Repeat until the episode ends:
-     1. Take action \( A \), observe reward \( R \) and next state \( S' \).
-     2. Choose next action \( A' \) in \( S' \) using the current policy.
-     3. Update \( Q(S, A) \):
-        \[
-        Q(S, A) \leftarrow Q(S, A) + \alpha \left[ R + \gamma Q(S', A') - Q(S, A) \right]
-        \]
-     4. Transition to \( S' \) and \( A' \).
+     1. Take action $( A )$, observe reward $( R )$ and next state $( S' )$.
+     2. Choose next action $( A' )$ in $( S' )$ using the current policy.
+     3. Update $ Q(S, A) $:
+        $Q(S, A) \leftarrow Q(S, A) + \alpha \left[ R + \gamma Q(S', A') - Q(S, A) \right]$
+     4. Transition to $( S' )$ and $( A' )$.
 
 3. **Update Policy**:
    - Derive the optimal policy from the learned Q-values.
