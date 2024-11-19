@@ -149,11 +149,3 @@ A **2x2 grid world**:
 ### What This Example Teaches:
 - SARSA updates $Q(s, a)$ based on the **current policy's actions**.
 - Iterative updates refine the Q-values and improve the policy over time.
-
-
-
-
-
-
-
-
