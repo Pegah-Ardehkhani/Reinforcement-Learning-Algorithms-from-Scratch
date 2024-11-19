@@ -8,15 +8,13 @@ SARSA (State-Action-Reward-State-Action) is an **on-policy reinforcement learnin
 
 2. **Update Rule**:
    The Q-value update in SARSA is governed by the equation:
-   \[
-   Q(S, A) \leftarrow Q(S, A) + \alpha \left[ R + \gamma Q(S', A') - Q(S, A) \right]
-   \]
+   $Q(S, A) \leftarrow Q(S, A) + \alpha \left[ R + \gamma Q(S', A') - Q(S, A) \right]$
    Where:
-   - \( S, A \): Current state and action.
-   - \( R \): Reward received after taking action \( A \).
-   - \( S', A' \): Next state and action chosen by the policy.
-   - \( \alpha \): Learning rate.
-   - \( \gamma \): Discount factor.
+   - $( S, A )$: Current state and action.
+   - $( R )$: Reward received after taking action $( A )$.
+   - $( S', A' )$: Next state and action chosen by the policy.
+   - $( \alpha )$: Learning rate.
+   - $( \gamma )$: Discount factor.
 
 3. **Exploration-Exploitation Balance**:
    - SARSA typically uses an **epsilon-greedy policy** for action selection, which balances exploration (trying new actions) and exploitation (choosing the best-known action).
