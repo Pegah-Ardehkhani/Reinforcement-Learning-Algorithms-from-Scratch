@@ -90,8 +90,6 @@ A **2x2 grid world**:
 - Other states have a step cost of -1.
 - The agent follows an epsilon-greedy policy.
 
----
-
 #### Walkthrough:
 
 | State | Actions | Next State | Reward |
@@ -101,8 +99,6 @@ A **2x2 grid world**:
 
 **Initial Q-Table**:
 Assume $( Q(S, A) = 0 )$ for all state-action pairs.
-
----
 
 #### Episode Steps:
 1. Start in $( S_1 )$, select $( A = R )$ (epsilon-greedy).
@@ -123,8 +119,6 @@ Assume $( Q(S, A) = 0 )$ for all state-action pairs.
 |-------|--------|---------|
 | $( S_1 )$ | $R$ | -0.01   |
 | $( S_2 )$ | $D$ | 1.0     |
-
----
 
 ### What This Example Teaches:
 - SARSA updates $ Q(s, a) $ based on the **current policy's actions**.
