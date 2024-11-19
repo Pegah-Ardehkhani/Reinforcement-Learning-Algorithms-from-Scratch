@@ -109,11 +109,13 @@ Assume $( Q(S, A) = 0 )$ for all state-action pairs.
 2. Move to $( S_2 )$, receive $( R = -1 )$, choose $( A' = D )$.
 3. Move to $( S_4 )$, receive $( R = +10 )$ (goal state).
 4. Update Q-values:
-   - At $( (S_2, D) )$:
+   - At $(S_2, D)$:
+     
      $Q(S_2, D) = Q(S_2, D) + \alpha \left[ R + \gamma Q(S_4, \cdot) - Q(S_2, D) \right]$
      Since $( Q(S_4, \cdot) = 0 )$ (terminal state):
      $Q(S_2, D) = 0 + 0.1 \left[ 10 + 0 \times 0 - 0 \right] = 1.0$
-   - At $( (S_1, R) )$:
+   - At $(S_1, R)$:
+     
      $Q(S_1, R) = 0 + 0.1 \left[ -1 + 0.9 \times Q(S_2, D) - Q(S_1, R) \right]$
      Using $( Q(S_2, D) = 1.0 )$:
      $Q(S_1, R) = 0 + 0.1 \left[ -1 + 0.9 \times 1 - 0 \right] = -0.01$
