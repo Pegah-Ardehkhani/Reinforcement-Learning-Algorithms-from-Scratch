@@ -1,6 +1,8 @@
 # SARSA: State-Action-Reward-State-Action
 
-SARSA (State-Action-Reward-State-Action) is an **on-policy reinforcement learning algorithm** that enables an agent to learn the optimal policy in a Markov Decision Process (MDP). The algorithm updates the Q-values (action-value function) by interacting with the environment and following the current policy.
+**SARSA** (State-Action-Reward-State-Action) is an **on-policy reinforcement learning algorithm** that enables an agent to learn the optimal policy in a Markov Decision Process (MDP). Being on-policy, SARSA evaluates and improves the policy that the agent is currently following during learning, rather than a separate, optimal policy. This means the algorithm updates its Q-values (action-value function) based on the actions taken by the current policy, including exploratory actions.
+
+In simpler terms, SARSA not only learns from the environment but also from the actual behavior of the agent, ensuring that the learned values reflect the policy being followed. This approach is particularly useful in environments where adherence to a cautious or safe policy is crucial.
 
 ---
 
