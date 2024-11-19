@@ -1,7 +1,3 @@
-Here’s the updated README for **Q-Learning**, restructured and rewritten to match the context while highlighting its differences from SARSA:
-
----
-
 # Q-Learning: A Model-Free Off-Policy Reinforcement Learning Algorithm
 
 **Q-Learning** is an **off-policy reinforcement learning algorithm** that enables an agent to learn the optimal policy for a Markov Decision Process (MDP). Unlike SARSA, which learns the value of the policy being followed, Q-Learning directly evaluates the optimal policy regardless of the agent's current actions. It uses the maximum future reward estimate for the next state to update Q-values (action-value function).
