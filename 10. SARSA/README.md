@@ -72,7 +72,7 @@ SARSA is particularly useful when:
 | Feature               | SARSA                       | Q-Learning                |
 |-----------------------|----------------------------|--------------------------|
 | Type                 | On-Policy                  | Off-Policy               |
-| Update Rule          | $ Q(S, A) $ depends on the action $( A' )$ chosen by the current policy. | $( Q(S, A) )$ uses $( \max Q(S', a) )$ (best action in $( S' )$). |
+| Update Rule          | $ Q(S, A) $ depends on the action $( A' )$ chosen by the current policy. | $( Q(S, A) )$ uses $( \max Q(S', a) )$ (best action in $( S' )$ ). |
 | Exploration Strategy  | Directly affects learning. | Independent of the learned policy. |
 | Convergence Speed    | Slower                     | Faster                   |
 | Behavior             | More cautious, follows the current policy. | Can explore aggressively to find optimal policies. |
