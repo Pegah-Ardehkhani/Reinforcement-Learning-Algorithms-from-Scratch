@@ -26,4 +26,4 @@ SARSA (State-Action-Reward-State-Action) is an **on-policy reinforcement learnin
 SARSA is ideal for environments where it is crucial to learn a safe or cautious policy, as it directly evaluates the policy being followed rather than the optimal policy (like in Q-Learning).
 
 #### Comparison with Q-Learning:
-- SARSA updates are based on the action taken by the current policy (\( A' \)), while Q-Learning updates are based on the best action (\( \max Q(S', a) \)) regardless of the current policy. This makes SARSA more policy-aware but sometimes slower to converge.
+- SARSA updates are based on the action taken by the current policy $( A' )$, while Q-Learning updates are based on the best action $( \max Q(S', a) )$ regardless of the current policy. This makes SARSA more policy-aware but sometimes slower to converge.
