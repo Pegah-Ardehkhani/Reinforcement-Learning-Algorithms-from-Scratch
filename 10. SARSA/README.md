@@ -121,5 +121,5 @@ Assume $( Q(S, A) = 0 )$ for all state-action pairs.
 | $( S_2 )$ | $D$ | 1.0     |
 
 ### What This Example Teaches:
-- SARSA updates $ Q(s, a) $ based on the **current policy's actions**.
+- SARSA updates $Q(s, a)$ based on the **current policy's actions**.
 - Iterative updates refine the Q-values and improve the policy over time.
