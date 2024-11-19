@@ -87,45 +87,73 @@ SARSA is particularly useful when:
 
 #### Example Setup:
 A **2x2 grid world**:
-- States: $( S_1, S_2, S_3, S_4 )$ (numbered as grid positions).
-- Actions: Up $(U)$, Down $(D)$, Left $(L)$, Right $(R)$.
-- Start state: $( S_1 )$ (top-left corner).
-- Goal state: $( S_4 )$ (bottom-right corner) with a reward of +10.
-- Other states have a step cost of -1.
-- The agent follows an epsilon-greedy policy.
+- **States**: $( S_1, S_2, S_3, S_4 )$.
+- **Actions**: Up $(U)$, Down $(D)$, Left $(L)$, Right $(R)$.
+- **Rewards**:
+  - $( S_4 )$: Goal state, reward = $( +10 )$.
+  - Other states have a step cost = $( -1 )$.
+- **Start state**: $( S_1 )$ (top-left corner).
+- **Policy**: The agent follows an epsilon-greedy policy.
 
-#### Walkthrough:
+**Grid Layout**:
 
-| State | Actions | Next State | Reward |
-|-------|---------|------------|--------|
-| $( S_1 )$ | $R$ | $( S_2 )$ | -1 |
-| $( S_2 )$ | $D$ | $( S_4 )$ | +10 |
+| State  | State  |
+|--------|--------|
+| $( S_1 )$ | $( S_2 )$ |
+| $( S_3 )$ | $( S_4 )$ |
 
-**Initial Q-Table**:
-Assume $( Q(S, A) = 0 )$ for all state-action pairs.
+#### Initial Q-Table:
+- $( Q(s, a) = 0 )$ for all state-action pairs.
 
-#### Episode Steps:
-1. Start in $( S_1 )$, select $( A = R )$ (epsilon-greedy).
-2. Move to $( S_2 )$, receive $( R = -1 )$, choose $( A' = D )$.
-3. Move to $( S_4 )$, receive $( R = +10 )$ (goal state).
-4. Update Q-values:
-   - At $(S_2, D)$:
-     
-     $Q(S_2, D) = Q(S_2, D) + \alpha \left[ R + \gamma Q(S_4, \cdot) - Q(S_2, D) \right]$
-     Since $( Q(S_4, \cdot) = 0 )$ (terminal state):
-     $Q(S_2, D) = 0 + 0.1 \left[ 10 + 0 \times 0 - 0 \right] = 1.0$
-   - At $(S_1, R)$:
-     
-     $Q(S_1, R) = 0 + 0.1 \left[ -1 + 0.9 \times Q(S_2, D) - Q(S_1, R) \right]$
-     Using $( Q(S_2, D) = 1.0 )$:
-     $Q(S_1, R) = 0 + 0.1 \left[ -1 + 0.9 \times 1 - 0 \right] = -0.01$
+#### Step-by-Step Walkthrough:
 
-**Updated Q-Table After One Episode**:
-| State | Action | Q-Value |
-|-------|--------|---------|
-| $( S_1 )$ | $R$ | -0.01   |
-| $( S_2 )$ | $D$ | 1.0     |
+1. **Episode Start**:
+   - Start at $( S_1 )$.
+   - Use epsilon-greedy to choose $( A = R )$.
+
+2. **First Transition**:
+   - Take action $( R )$ from $( S_1 )$.
+   - Move to $( S_2 )$, receive $( R = -1 )$.
+   - Choose $( A' = D )$ in $( S_2 )$ using epsilon-greedy.
+
+   **Update $( Q(S_1, R) )$:**
+   
+   $Q(S_1, R) \leftarrow Q(S_1, R) + \alpha \left[ R + \gamma Q(S_2, D) - Q(S_1, R) \right]$
+   
+   Substituting values:
+   - $( Q(S_1, R) = 0 )$, $( R = -1 )$, $( Q(S_2, D) = 0 )$, $( \alpha = 0.1 )$, $( \gamma = 0.9 )$:
+   
+   $Q(S_1, R) \leftarrow 0 + 0.1 \left[ -1 + 0.9 \times 0 - 0 \right] = -0.1$
+
+4. **Second Transition**:
+   - Take action $( D )$ from $( S_2 )$.
+   - Move to $( S_4 )$, receive $( R = +10 )$.
+   - $( S_4 )$ is terminal, so $( Q(S_4, \cdot) = 0 )$.
+
+   **Update $( Q(S_2, D) )$:**
+   
+   $Q(S_2, D) \leftarrow Q(S_2, D) + \alpha \left[ R + \gamma Q(S_4, \cdot) - Q(S_2, D) \right]$
+   
+   Substituting values:
+   - $( Q(S_2, D) = 0 )$, $( R = +10 )$, $( Q(S_4, \cdot) = 0 )$, $( \alpha = 0.1 )$, $( \gamma = 0.9 )$:
+   
+   $Q(S_2, D) \leftarrow 0 + 0.1 \left[ 10 + 0 - 0 \right] = 1.0$
+
+#### Updated Q-Table After One Episode:
+| State    | Action | Q-Value |
+|----------|--------|---------|
+| $( S_1 )$ | $( R )$ | $-0.1$    |
+| $( S_2 )$ | $( D )$ | $1.0$     |
+| All other states/actions | - | $0$       |
 
 ### What This Example Teaches:
 - SARSA updates $Q(s, a)$ based on the **current policy's actions**.
 - Iterative updates refine the Q-values and improve the policy over time.
+
+
+
+
+
+
+
+
