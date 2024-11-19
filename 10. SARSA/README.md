@@ -51,9 +51,11 @@ SARSA iteratively improves the Q-values and the policy by interacting with the e
    - Repeat until the episode ends:
      1. Take action $( A )$, observe reward $( R )$ and next state $( S' )$.
      2. Choose next action $( A' )$ in $( S' )$ using the current policy.
-     3. Update $ Q(S, A) $:
+     3. Update $Q(S, A)$:
+        
         $Q(S, A) \leftarrow Q(S, A) + \alpha \left[ R + \gamma Q(S', A') - Q(S, A) \right]$
-     4. Transition to $( S' )$ and $( A' )$.
+        
+     5. Transition to $( S' )$ and $( A' )$.
 
 3. **Update Policy**:
    - Derive the optimal policy from the learned Q-values.
@@ -74,7 +76,7 @@ SARSA is particularly useful when:
 | Feature               | SARSA                       | Q-Learning                |
 |-----------------------|----------------------------|--------------------------|
 | Type                 | On-Policy                  | Off-Policy               |
-| Update Rule          | $ Q(S, A) $ depends on the action $( A' )$ chosen by the current policy. | $( Q(S, A) )$ uses $( \max Q(S', a) )$ (best action in $( S' )$ ). |
+| Update Rule          | $Q(S, A)$ depends on the action $( A' )$ chosen by the current policy. | $( Q(S, A) )$ uses $( \max Q(S', a) )$ (best action in $( S' )$ ). |
 | Exploration Strategy  | Directly affects learning. | Independent of the learned policy. |
 | Convergence Speed    | Slower                     | Faster                   |
 | Behavior             | More cautious, follows the current policy. | Can explore aggressively to find optimal policies. |
