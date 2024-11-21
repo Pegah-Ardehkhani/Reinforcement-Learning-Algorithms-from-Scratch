@@ -21,3 +21,5 @@
 **07. Value Iteration**
 
 **08. TD(0)**
+
+09. TD(λ)
