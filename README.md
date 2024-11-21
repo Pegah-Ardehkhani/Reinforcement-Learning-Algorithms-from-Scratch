@@ -19,3 +19,5 @@
 **06. Policy Iteration**
 
 **07. Value Iteration**
+
+**08. TD(0)**
