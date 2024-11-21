@@ -143,8 +143,8 @@ A **2x2 grid world**:
 #### Updated Q-Table After One Episode:
 | State    | Action | Q-Value |
 |----------|--------|---------|
-| \( S_1 \) | \( R \) | $-0.1$    |
-| \( S_2 \) | \( D \) | $1.0$     |
+| $( S_1 )$ | $( R )$ | $-0.1$    |
+| $( S_2 )$ | $( D )$ | $1.0$     |
 | All other states/actions | - | $0$       |
 
 ### What This Example Teaches:
