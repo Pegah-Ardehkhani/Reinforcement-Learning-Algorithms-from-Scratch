@@ -12,18 +12,18 @@ In simpler terms, Q-Learning allows an agent to learn the best possible actions 
 
 2. **Update Rule**:
    The Q-value update in Q-Learning is governed by the equation:
-   \[
-   Q(S, A) \leftarrow Q(S, A) + \alpha \left[ R + \gamma \max_{a'} Q(S', a') - Q(S, A) \right]
-   \]
+   
+   $Q(S, A) \leftarrow Q(S, A) + \alpha \left[ R + \gamma \max_{a'} Q(S', a') - Q(S, A) \right]$
+   
    Where:
-   - \( S, A \): Current state and action.
-   - \( R \): Reward received after taking action \( A \).
-   - \( S' \): Next state.
-   - \( \max_{a'} Q(S', a') \): Maximum estimated Q-value for all actions in state \( S' \).
-   - \( \alpha \): Learning rate.
-   - \( \gamma \): Discount factor.
+   - $( S, A )$: Current state and action.
+   - $( R )$: Reward received after taking action \( A \).
+   - $( S' )$: Next state.
+   - $( \max_{a'} Q(S', a') )$: Maximum estimated Q-value for all actions in state $( S' )$.
+   - $( \alpha )$: Learning rate.
+   - $( \gamma )$: Discount factor.
 
-3. **Exploration vs. Exploitation**:
+4. **Exploration vs. Exploitation**:
    - Q-Learning typically uses an **epsilon-greedy policy** for action selection, allowing the agent to balance exploring new actions and exploiting the best-known actions.
 
 ---
