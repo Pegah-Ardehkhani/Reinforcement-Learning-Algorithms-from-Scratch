@@ -159,5 +159,3 @@ A **2x2 grid world**:
 ### What This Example Teaches:
 - Q-Learning updates \( Q(s, a) \) based on the **maximum possible reward** for the next state.
 - It does not depend on the policy being followed, making it more aggressive in finding optimal policies.
-
-Let me know if you need further refinements!
