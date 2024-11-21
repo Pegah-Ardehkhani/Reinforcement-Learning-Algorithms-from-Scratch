@@ -46,20 +46,19 @@ In simpler terms, Q-Learning allows an agent to learn the best possible actions 
 Q-Learning iteratively improves the Q-values and the policy by interacting with the environment. Below are the steps:
 
 1. **Initialize**:
-   - Set all Q-values \( Q(s, a) \) to 0 (or small random values).
+   - Set all Q-values $( Q(s, a) )$ to 0 (or small random values).
    - Define the exploration policy (e.g., epsilon-greedy).
 
 2. **For Each Episode**:
-   - Start in an initial state \( S \).
+   - Start in an initial state $( S )$.
    - Repeat until the episode ends:
-     1. Choose an action \( A \) using the current policy (e.g., epsilon-greedy).
-     2. Take action \( A \), observe reward \( R \) and next state \( S' \).
-     3. Update \( Q(S, A) \):
+     1. Choose an action $( A )$ using the current policy (e.g., epsilon-greedy).
+     2. Take action $( A )$, observe reward $( R )$ and next state $( S' )$.
+     3. Update $( Q(S, A) )$:
         
-        \[
-        Q(S, A) \leftarrow Q(S, A) + \alpha \left[ R + \gamma \max_{a'} Q(S', a') - Q(S, A) \right]
-        \]
-     4. Transition to \( S' \).
+        $Q(S, A) \leftarrow Q(S, A) + \alpha \left[ R + \gamma \max_{a'} Q(S', a') - Q(S, A) \right]$
+        
+     5. Transition to $( S' )$.
 
 3. **Update Policy**:
    - Derive the optimal policy from the learned Q-values.
@@ -91,61 +90,55 @@ Q-Learning is particularly useful when:
 
 #### Example Setup:
 A **2x2 grid world**:
-- **States**: \( S_1, S_2, S_3, S_4 \).
-- **Actions**: Up \( U \), Down \( D \), Left \( L \), Right \( R \).
+- **States**: $( S_1, S_2, S_3, S_4 )$.
+- **Actions**: Up $( U )$, Down $( D )$, Left $( L )$, Right $( R )$.
 - **Rewards**:
-  - \( S_4 \): Goal state, reward = \( +10 \).
-  - Other states have a step cost = \( -1 \).
-- **Start state**: \( S_1 \) (top-left corner).
+  - $( S_4 )$: Goal state, reward = $( +10 )$.
+  - Other states have a step cost = $( -1 )$.
+- **Start state**: $( S_1 )$ (top-left corner).
 - **Policy**: The agent follows an epsilon-greedy policy.
 
 #### Grid Layout:
 
 | State  | State  |
 |--------|--------|
-| \( S_1 \) | \( S_2 \) |
-| \( S_3 \) | \( S_4 \) |
+| $( S_1 )$ | $( S_2 )$ |
+| $( S_3 )$ | $( S_4 )$ |
 
 #### Initial Q-Table:
-- \( Q(s, a) = 0 \) for all state-action pairs.
-
----
+- $( Q(s, a) = 0 )$ for all state-action pairs.
 
 #### Step-by-Step Walkthrough:
 
 1. **Episode Start**:
-   - Start at \( S_1 \).
-   - Use epsilon-greedy to choose \( A = R \).
+   - Start at $( S_1 )$.
+   - Use epsilon-greedy to choose $( A = R )$.
 
 2. **First Transition**:
-   - Take action \( R \) from \( S_1 \).
-   - Move to \( S_2 \), receive \( R = -1 \).
+   - Take action $( R )$ from $( S_1 )$.
+   - Move to $( S_2 )$, receive $( R = -1 )$.
 
-   **Update \( Q(S_1, R) \):**
-   \[
-   Q(S_1, R) \leftarrow Q(S_1, R) + \alpha \left[ R + \gamma \max_{a'} Q(S_2, a') - Q(S_1, R) \right]
-   \]
+   **Update $( Q(S_1, R) )$:**
+   
+   $Q(S_1, R) \leftarrow Q(S_1, R) + \alpha \left[ R + \gamma \max_{a'} Q(S_2, a') - Q(S_1, R) \right]$
+   
    Substituting values:
-   - \( Q(S_1, R) = 0 \), \( R = -1 \), \( \max_{a'} Q(S_2, a') = 0 \), \( \alpha = 0.1 \), \( \gamma = 0.9 \):
-   \[
-   Q(S_1, R) \leftarrow 0 + 0.1 \left[ -1 + 0.9 \times 0 - 0 \right] = -0.1
-   \]
+   - $( Q(S_1, R) = 0 )$, $( R = -1 )$, $( \max_{a'} Q(S_2, a') = 0 )$, $( \alpha = 0.1 )$, $( \gamma = 0.9 )$:
+   
+   $Q(S_1, R) \leftarrow 0 + 0.1 \left[ -1 + 0.9 \times 0 - 0 \right] = -0.1$
 
-3. **Second Transition**:
-   - Take action \( D \) from \( S_2 \).
-   - Move to \( S_4 \), receive \( R = +10 \).
+4. **Second Transition**:
+   - Take action $( D )$ from $( S_2 )$.
+   - Move to $( S_4 )$, receive $( R = +10 )$.
 
-   **Update \( Q(S_2, D) \):**
-   \[
-   Q(S_2, D) \leftarrow Q(S_2, D) + \alpha \left[ R + \gamma \max_{a'} Q(S_4, a') - Q(S_2, D) \right]
-   \]
+   **Update $( Q(S_2, D) )$:**
+   
+   $Q(S_2, D) \leftarrow Q(S_2, D) + \alpha \left[ R + \gamma \max_{a'} Q(S_4, a') - Q(S_2, D) \right]$
+   
    Substituting values:
-   - \( Q(S_2, D) = 0 \), \( R = +10 \), \( \max_{a'} Q(S_4, a') = 0 \), \( \alpha = 0.1 \), \( \gamma = 0.9 \):
-   \[
-   Q(S_2, D) \leftarrow 0 + 0.1 \left[ 10 + 0 - 0 \right] = 1.0
-   \]
-
----
+   - $( Q(S_2, D) = 0 )$, $( R = +10 )$, $( \max_{a'} Q(S_4, a') = 0 )$, $( \alpha = 0.1 )$, $( \gamma = 0.9 )$:
+   
+   $Q(S_2, D) \leftarrow 0 + 0.1 \left[ 10 + 0 - 0 \right] = 1.0$
 
 #### Updated Q-Table After One Episode:
 | State    | Action | Q-Value |
@@ -153,8 +146,6 @@ A **2x2 grid world**:
 | \( S_1 \) | \( R \) | $-0.1$    |
 | \( S_2 \) | \( D \) | $1.0$     |
 | All other states/actions | - | $0$       |
-
----
 
 ### What This Example Teaches:
 - Q-Learning updates \( Q(s, a) \) based on the **maximum possible reward** for the next state.
