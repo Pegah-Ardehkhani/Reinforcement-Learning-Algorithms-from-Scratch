@@ -27,3 +27,5 @@
 **10. SARSA**
 
 **11. Q-Learning**
+
+**12. Deep Q-Learning**
