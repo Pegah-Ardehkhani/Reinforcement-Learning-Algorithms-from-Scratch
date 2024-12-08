@@ -26,6 +26,8 @@
 
 **10. SARSA**
 
-**11. Q-Learning**
+**11. SARSA(λ)**
 
-**12. Deep Q-Learning**
+**12. Q-Learning**
+
+**13. Deep Q-Learning**
